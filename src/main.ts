@@ -1,34 +1,22 @@
-/**
- * Some predefined delay values (in milliseconds).
- */
-export enum Delays {
-  Short = 500,
-  Medium = 2000,
-  Long = 5000,
-}
 
-/**
- * Returns a Promise<string> that resolves after a given time.
- *
- * @param {string} name - A name.
- * @param {number=} [delay=Delays.Medium] - A number of milliseconds to delay resolution of the Promise.
- * @returns {Promise<string>}
- */
-function delayedHello(
-  name: string,
-  delay: number = Delays.Medium,
-): Promise<string> {
-  return new Promise((resolve: (value?: string) => void) =>
-    setTimeout(() => resolve(`Hello, ${name}`), delay),
-  );
-}
 
-// Please see the comment in the .eslintrc.json file about the suppressed rule!
-// Below is an example of how to use ESLint errors suppression. You can read more
-// at https://eslint.org/docs/latest/user-guide/configuring/rules#disabling-rules
+///import {  get_page_by_url,create_page_meatadata, get_list_page_metadata, delete_page_metadata } from '../src/apisync.js';
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export async function greeter(name: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
-  // The name parameter should be of type string. Any is used only to trigger the rule.
-  return await delayedHello(name, Delays.Long);
-}
+
+
+import {  deep } from '../src/util.js';
+
+
+const arr1: (string | number)[] = ['Apple',  'Orange','Banana']; 
+const response = await deep(arr1)
+console.log("Response deep:", response);
+
+//const response2 = await create_page_meatadata("http://hellohello.com","2015-01-01","Hello, world!",-47)
+//console.log("create page metada:", response2);
+
+
+///const response4 = await get_page_by_url('http://hellohello.com')
+///console.log("Page metada by URL:", response4);
+
+///const response5= await delete_page_metadata({url_name: 'http://hellohello.com'})
+///console.log("Delete:", response5);
